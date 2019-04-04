@@ -40,7 +40,7 @@ $ git clone https://github.com/MarineLH/I4_no_sql_TP_3.git
 
 Une fois fait, lancer les commandes suivantes afin d'instancier redis dans le projet :
 ```
-$ cd I4_no_sql_TP_3/redis-py
+$ cd chemin/vers/I4_no_sql_TP_3/redis-py
 $ sudo python3 setup.py install
 ```
 
@@ -72,7 +72,16 @@ Plusieurs méthodes sont disponibles afin d'utiliser le serveur HTTP pour sauveg
 notamment avec l'utilisation de commandes `curl`ou via l'application bureau `Postman`.
 
 - **Créer une note :**
-    - CURL : `curl -H "Content-Type:text/plain" --data 'le_contenu_de_la_note" http://localhost:8080/notes`
-    - POSTMAN :
-   
+    - **Curl :** `$ curl -H "Content-Type:text/plain" --data 'le_contenu_de_la_note" http://localhost:8080/notes`
+    - **Postman :** ![alt text](https://github.com/MarineLH/I4_no_sql_TP_3/blob/master/images/creerNote.PNG)
+- **Consulter une note via son id :**
+    - **Curl :** `$ curl http://localhost:8080/notes/{idnote}` 
+    - **Postman :** ![alt text](https://github.com/MarineLH/I4_no_sql_TP_3/blob/master/images/consulterNote.PNG)
+- **Supprimer une  note via son id :**
+    - **Curl :** `$ curl -X DELETE http://localhost:8080/notes/{id_note}` 
+    - **Postman :** ![alt text](https://github.com/MarineLH/I4_no_sql_TP_3/blob/master/images/supprimerNote.PNG)
+- **Consulter toutes les notes disponibles :**
+    - **Curl :** `$ curl  http://localhost:8080/notes` 
+    - **Postman :** ![alt text](https://github.com/MarineLH/I4_no_sql_TP_3/blob/master/images/consulterToutesNotes.PNG)
 
+Il ne vous reste plus qu'à tester notre application !
