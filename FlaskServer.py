@@ -1,9 +1,9 @@
 from flask import Flask, request
 import RedisServer
+import uuid
 
 app = Flask(__name__)
 
-counter = 0
 server_host = "127.0.0.1"
 server_port = 8080
 
@@ -39,10 +39,9 @@ def get_note(id):
 
 @app.route("/notes", methods=['POST'])
 def post_note():
-    global counter
-    counter += 1
-    RedisServer.post_note(str(counter), str(request.data)[2:-1])
-    return "Création de la note : " + str(request.data)[2:-1] + "\nAvec l'id : " + str(counter)
+    id = uuid.uuid4().hex
+    RedisServer.post_note(str(id), str(request.data)[2:-1])
+    return "Création de la note : " + str(request.data)[2:-1] + "\nAvec l'id : " + str(id)
 
 
 @app.route("/notes/<string:id>", methods=['DELETE'])
